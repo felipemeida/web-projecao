@@ -1,0 +1,178 @@
+<div class="login-tab" id="login_form">
+    <form id="login-form" method="POST" action="javascript:void(0);" enctype="multipart/form-data">
+        <div class="text-center"><h3>FAZER LOGIN</h3></div>
+        <div class="clearfix"></div>
+
+        <hr class="mt-0">
+
+        <div class="">
+            <div class="text-center d-block w-100 mb-2">ENTRAR COM</div>
+
+            <div class="d-flex justify-content-center">
+                <div id="gSignInWrapper" class="form-group form-control-default mb-0 me-2">
+                    <div id="customBtn" class="customGPlusSignIn">
+                        <button type="button" class="btn btn-light btn-block btn-sm px-3" data-toggle="tooltip" data-placement="top" title="" data-original-title="Google"><i class="fab fa-google"></i></button>
+                    </div>
+                </div>
+
+                <div class="form-group form-control-default mb-0 me-2">
+                    <a href="javascript:void(0)" onclick="facebookOpenPopup();" data-urlloginfacebook="" class="btn btn-light btn-block btn-sm px-3 facebookUrlLogin" data-toggle="tooltip" data-placement="top" title="" data-original-title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="strike">
+            <span>ou</span>
+        </div>
+
+        <div class="row">
+            <div id="info-login" class="col-md-12 alert alert-danger text-center rounded-0" style="display: none;">Usuário ou Senha incorreto.</div>
+            <div id="info-login-google" class="col-md-12 alert alert-danger text-center rounded-0" style="display: none;">Erro de login com o google.</div>
+            <div class="form-group mb-3 form-control-default col-md-12 position-relative">
+                <input type="text" class="form-control" name="email" required="required" placeholder="E-MAIL OU TELEFONE">
+            </div>
+            <div class="form-group mb-3 form-control-default col-md-12 position-relative">
+                <input type="password" class="form-control" id="passlogin" name="password" data-type="hide" required="required" placeholder="SUA SENHA">
+                <span class="passlogin" onclick="show_pass('passlogin')"><i class="fal fa-eye"></i></span>
+            </div>
+            <div class="form-group col-md-12 mb-0">
+                <input type="hidden" name="company" value="{{ dataCompany.id }}">
+                <input type="hidden" name="action" value="login">
+                <button type="submit" class="btn btn-success col-md-12"><i class="fa fa-check-circle"></i> ENTRAR</button>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+
+        <div class="login-footer text-center mt-3">
+            <a href="javascript:void(0);" onclick="show('recover');" class="forgot-pass tablink text-success"><strong>ESQUECEU A SENHA?</strong></a>
+            <br>
+        </div>
+
+        <div class="strike">
+            <span>ou</span>
+        </div>
+
+        <div class="text-center text-nowrap"><strong>NÃO TEM UMA CONTA? <a href="javascript:void(0);" class="text-success" onclick="show('registro');">CADASTRE-SE</a> </strong></div>
+        <div class="clearfix"></div>
+
+    </form>
+</div>
+
+<div class="login-tab d-none" id="registro">
+    <form id="cadastro-form" method="POST" action="" enctype="multipart/form-data">
+        <div class="text-center"><h3>FAZER CADASTRO</h3></div>
+        <div class="clearfix"></div>
+        <hr>
+
+        <div class="d-flex justify-content-center">
+            <div id="gSignInWrapper" class="form-group form-control-default mb-0 me-2">
+                <div id="customBtn2" class="customGPlusSignIn">
+                    <button type="button" class="btn btn-light btn-block btn-sm px-3" data-toggle="tooltip" data-placement="top" title="Google"><i class="fab fa-google"></i></button>
+                </div>
+            </div>
+
+            <div id="name"></div>
+
+            <div class="form-group form-control-default mb-0 me-2">
+                <a href="javascript:void(0)" onclick="facebookOpenPopup();" data-urlloginfacebook="" class="btn btn-light btn-block btn-sm px-3 facebookUrlLogin" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            </div>
+
+        </div>
+
+        <div class="strike">
+            <span>ou</span>
+        </div>
+           
+        <div class="row">
+            <div id="email-cadastro" class="col-md-12 alert alert-danger text-center rounded-0" style="display: none;">E-mail já cadastrado.</div>
+            <div id="info-cadastro" class="col-md-12 alert alert-danger text-center rounded-0" style="display: none;">Algo deu errado. Tente novamente mais tarde.</div>
+
+            <input type="hidden" class="form-control" name="avatar" value="1.svg">
+
+            <div class="form-group mb-3 form-control-default col-md-12 position-relative required">
+                <input type="text" class="form-control" name="user_name" required="required" autocomplete="off" onkeyup="validationName(this.value);" placeholder="SEU NOME">
+                <div class="alert alert-danger p-1 text-center" id="nomesobre" style="display: none;">Mínimo de Nome e Sobrenome</div>
+            </div>
+            <div class="form-group mb-3 form-control-default col-md-12 position-relative required">
+                <input type="text" class="form-control" name="user_identification" required="required" autocomplete="off" placeholder="E-MAIL OU TELEFONE">
+            </div>
+            <div class="form-group mb-3 form-control-default col-md-12 position-relative required">
+                <select class="form-control" name="user_sector" required="required">
+                  <option value="">SETOR DE ATUAÇÃO</option>
+                  <option value="Proprietário de Veículo">Proprietário de Veículo</option>
+                  <option value="Mecânico / Reparador">Mecânico / Reparador</option>
+                  <option value="Frotista">Frotista</option>
+                  <option value="Varejista">Varejista</option>
+                  <option value="Oficina Reparadora">Oficina Reparadora</option>
+                  <option value="Taxista">Taxista</option>
+                  <option value="Auto Center">Auto Center</option>
+                  <option value="Transportadora">Transportadora</option>
+                  <option value="Distribuidora">Distribuidora</option>
+                  <option value="Outros">Outros</option>
+              </select>
+            </div>
+            <div class="form-group mb-3 form-control-default col-md-12 position-relative required">
+                <input type="password" class="form-control" id="senha" name="user_password" required="required" autocomplete="off" placeholder="SUA SENHA">
+                <span class="passlogin" onclick="show_pass('senha')"><i class="fal fa-eye"></i></span>
+            </div>
+            <div class="form-group mb-3 form-control-default col-md-12 position-relative required">
+                <input type="password" class="form-control" id="resenha" name="repassword" required="required" autocomplete="off" placeholder="CONFIRMAR SENHA">
+                <span class="passlogin" onclick="show_pass('resenha')"><i class="fal fa-eye"></i></span>
+                <div class="text-danger pt-1" id="info-resenha" style="display: none;">Senhas não conferem</div>
+            </div>
+            <div class="form-group col-md-12">
+                <input type="hidden" name="company" value="{{ dataCompany.id }}">
+                <input type="hidden" name="action" value="cadastrarsimples">
+                <button type="submit" class="btn btn-success col-md-12 cadastroform"><i class="fa fa-check-circle"></i> CADASTRAR</button>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="strike">
+            <span>ou</span>
+        </div>
+        <div class="text-center"><strong>JÁ TENHO UMA CONTA? <a href="javascript:void(0);" class="text-success" onclick="show('login_form');">FAÇA LOGIN</a> </strong></div>
+        <div class="clearfix"></div>
+    </form>
+</div>
+
+<div class="login-tab d-none" id="recover">
+    <form id="recover-form" method="POST" action="" enctype="multipart/form-data">
+
+        <div class="text-center">
+            <h3>RECUPERAR SENHA</h3>
+            <div>Entre com seu E-mail e enviaremos instruções de como redefinir a sua senha:</div>
+            <br>
+        </div>
+
+        <div class="error-resete"></div>
+
+        <div class="input-group mb-3">
+            <input type="email" name="email" class="form-control" placeholder="DIGITE SEU E-MAIL">
+            <div class="input-group-append">
+                <button class="btn btn-light" type="button"><i class="fa fa-envelope" aria-hidden="true"></i></button>
+            </div>
+        </div>
+
+        <div class="d-grid gap-2">
+            <input type="hidden" name="slug-company" value="{{ dataCompany.slug }}">
+            <button type="submit" class="btn btn-success btn-block">RESETAR</button>
+        </div>
+
+    </form>
+
+    <div class="strike">
+        <span>ou</span>
+    </div>
+    <div class="text-center"><a href="javascript:void(0);" class="text-success" onclick="show('login_form');"><b>FAZER LOGIN</b></a></div>
+    <div class="clearfix"></div>
+</div>
+
+<div class="login-load" style="display: none;"></div>
+
+<script>
+loadScriptsLogin();
+// googleApiStart();
+facebookUrlLogin();
+</script>

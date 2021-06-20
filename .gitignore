@@ -1,0 +1,9 @@
+vendor/
+config/config.php
+node_modules/
+composer.lock
+.idea
+.DS_Store
+view/src/dist
+log_error
+.htaccess
