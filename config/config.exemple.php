@@ -1,10 +1,10 @@
 <?php
 
-define('DOMAIN', 'http://localhost:8000');
-define('PATH', 'http://localhost:8000');
+define('DOMAIN', 'http://localhost/projecao');
+define('PATH', 'http://localhost/projecao');
 
 //// CONFIGURAÇÕES DO BANCO ########################
-define('HOST_MAIN', '');
-define('USER_MAIN', '');
-define('PASS_MAIN', '');
-define('DBSA_MAIN', '');
+define('HOST_MAIN', 'localhost');
+define('USER_MAIN', 'root');
+define('PASS_MAIN', 'root12345');
+define('DBSA_MAIN', 'projecao');

@@ -1,0 +1,40 @@
+{% extends "layout/layoutMaster.twig" %}
+
+{% block title %}Título da Página{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <h2 class="my-3">Cadastro de regiões</h2>
+        {% if message != '' %}
+            <div class="alert alert-success" role="alert">
+                {{ message }}
+            </div>
+        {% endif %}
+        <table class="table">
+            <thead>
+            <tr>
+                <th width="100" scope="col">id</th>
+                <th scope="col">Nome da região</th>
+                <th width="210">Ações</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for region in regions %}
+                <tr>
+                    <th scope="row">{{ region.id_regiao }}</th>
+                    <td>{{ region.no_regiao }}</td>
+                    <td class="d-flex justify-content-evenly">
+                        <form action="{{ DOMAIN }}/regiao/editar/{{ region.id_regiao }}" method="get">
+                            <button type="submit" class="btn btn-primary">Editar</button>
+                        </form>
+                        <form action="{{ DOMAIN }}/regiao/deletar/{{ region.id_regiao }}" method="post">
+                            <button type="submit" class="btn btn-danger">Excluir</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}

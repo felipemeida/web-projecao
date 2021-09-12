@@ -1,0 +1,22 @@
+{% extends "layout/layoutMaster.twig" %}
+
+{% block title %}Cadastro de região{% endblock %}
+
+{% block body %}
+    <div class="row">
+            <h2 class="my-3">Cadastro de regiões</h2>
+            <form action="{{ DOMAIN }}/regiao{{ id ? '/editar/' ~ id }}" method="post">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label for="regiao" class="form-label">Nome da região</label>
+                        <input type="text" name="no_regiao" class="form-control" id="regiao" placeholder="Digite o nome da região" value="{{ no_regiao }}" required>
+                        {% if alert_no_regiao  %}
+                            <div class="invalid-feedback" style="display: block">{{ alert_no_regiao }}</div>
+                        {% endif %}
+                    </div>
+                </div>
+                <button class="mt-5 btn btn-primary" type="submit">{{ id ? 'Editar' : 'Cadastrar' }}</button>
+            </form>
+        </div>
+
+{% endblock %}

@@ -1,5 +1,5 @@
 {
-  "name": "agenciaclose/gs1",
+  "name": "felmework/projecao",
   "license": "proprietary",
   "type": "project",
   "description": "",
@@ -10,8 +10,8 @@
   },
   "authors": [
     {
-      "name": "Agencia Close",
-      "email": "rafael@agenciaclose.com.br"
+      "name": "Felipe Almeida",
+      "email": "almeida.dy.felipe@gmail.com"
     }
   ],
   "require": {
@@ -27,7 +27,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Agencia\\Close\\": "application/"
+      "Felmework\\": "app/"
     },
     "files": [
       "config/config.php",
